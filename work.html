@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work | SILT-HEXER</title>
+    <meta name="description" content="Selected constructs from SILT-HEXER. Redacted, refined, and released into the wild.">
+    <meta name="theme-color" content="#050505">
+    <meta name="color-scheme" content="dark">
+    <link rel="icon" type="image/png" href="symbol.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg:#050505; --bg-elevated:#0b0b0b; --text:#d6d6d6; --muted:#8f8f8f; --line:#1d1d1d; --accent:#cc0011; --accent-dark:#8f000c; --max-width:1180px; --radius:14px; --transition:220ms ease; }
+        *{box-sizing:border-box;margin:0;padding:0}         html{scroll-behavior:smooth;color-scheme:dark;scrollbar-color:#2a2a2a #050505}
+        body{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(1200px 500px at 50% -10%, rgba(204,0,17,0.12), transparent 60%),linear-gradient(180deg,#050505 0%,#070707 100%);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+        body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+        ::selection{background:rgba(204,0,17,.35);color:#fff} :focus-visible{outline:2px solid rgba(204,0,17,.6);outline-offset:2px}
+        img{max-width:100%;display:block} a{color:inherit}
+        .container{width:min(var(--max-width),calc(100% - 2.5rem));margin:0 auto}
+        .section{padding:6rem 0;border-top:1px solid var(--line)}
+        .eyebrow{font-family:"Cinzel",serif;font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+        h1,h2,h3{font-family:"Cinzel",serif;font-weight:600;color:#fff;line-height:1.15;letter-spacing:.04em}
+        h1{font-size:clamp(2.4rem,5vw,4rem);margin-bottom:1rem} h2{font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:1rem} h3{font-size:1.1rem;margin-bottom:.5rem}
+        p.lead{font-size:1.1rem;color:#c7c7c7;max-width:60ch}         .muted{color:var(--muted)} .clue{color:#d0d0d0;text-shadow:0 0 12px rgba(204,0,17,.15)}
+        .site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(5,5,5,.78);border-bottom:1px solid rgba(255,255,255,.04)}
+        .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+        .brand{display:inline-flex;align-items:center;gap:.75rem;text-decoration:none}
+        .brand img{height:32px;width:auto} .brand span{font-family:"Cinzel",serif;letter-spacing:.18em;font-size:.95rem;color:#fff}
+        .nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none}
+        .nav-links a{text-decoration:none;color:var(--muted);font-size:.92rem;font-weight:500;transition:color var(--transition)}
+        .nav-links a:hover,.nav-links a.active{color:#fff}
+        .nav-toggle{display:none;background:transparent;border:1px solid var(--line);color:#fff;border-radius:10px;padding:.45rem .7rem;font:inherit;cursor:pointer}
+        .page-hero{position:relative;padding:7rem 0 4rem;overflow:hidden}
+        .page-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 50% at 50% 0%, rgba(204,0,17,.15), transparent 70%);pointer-events:none}
+        .page-hero .bg-symbol{position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);width:min(80vw,800px);opacity:.05;filter:drop-shadow(0 0 30px rgba(204,0,17,.2));pointer-events:none}
+        .page-hero .container{position:relative;z-index:1}
+        .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem}
+        .work-card{position:relative;padding:1.75rem;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0));transition:transform var(--transition),border-color var(--transition),box-shadow var(--transition);overflow:hidden}
+        .work-card:hover{transform:translateY(-4px);border-color:rgba(204,0,17,.35);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+        .work-card .tag{display:inline-block;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-family:"Cinzel",serif;margin-bottom:.75rem}
+        .work-card p{color:var(--muted);font-size:.95rem}
+        .meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem}
+        .pill{font-size:.75rem;color:#bdbdbd;border:1px solid #242424;background:#0c0c0c;padding:.25rem .6rem;border-radius:999px}
+        .redacted{background:linear-gradient(90deg,#1a1a1a,#222,#1a1a1a);color:transparent;border-radius:4px;padding:0 .25rem;user-select:none}
+        .panel{background:linear-gradient(180deg,var(--bg-elevated),#080808);border:1px solid var(--line);border-radius:var(--radius);padding:2rem}
+        footer{border-top:1px solid var(--line);padding:3rem 0}
+        .footer-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem}
+        .footer-brand{display:flex;align-items:center;gap:.75rem}
+        .footer-brand img{width:30px;opacity:.9} .footer-brand span{font-family:"Cinzel",serif;letter-spacing:.18em;color:#fff}
+        .footer-meta{color:var(--muted);font-size:.9rem;text-align:right}
+        .reveal{opacity:0;transform:translateY(18px);transition:opacity 600ms ease,transform 600ms ease}
+        .reveal.visible{opacity:1;transform:none}
+        @media (max-width:960px){.grid{grid-template-columns:1fr 1fr}}
+        @media (max-width:720px){.section{padding:4.5rem 0}.nav{flex-wrap:wrap;gap:0 1rem}.brand{margin-right:auto}.nav-toggle{display:inline-flex;order:3}.nav-links{order:4;flex-basis:100%;display:none;flex-direction:column;align-items:stretch;gap:0;margin-top:.75rem;padding:.25rem 0 1rem;border-top:1px solid var(--line)}.nav-links.open{display:flex}.nav-links a{padding:.75rem 0;border-bottom:1px solid #151515}.nav-links li:last-child a{border-bottom:none}.grid{grid-template-columns:1fr}.footer-meta{text-align:left}}
+        @media (max-width:480px){.container{width:calc(100% - 1.75rem)}.section{padding:3.75rem 0}.page-hero{padding:5.5rem 0 3rem}.work-card{padding:1.35rem}.panel{padding:1.5rem}}
+        @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav">
+            <a href="index.html" class="brand" aria-label="SILT-HEXER home">
+                <img src="logo.png" alt=""><span>SILT-HEXER</span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="work.html" class="active">Our Work</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <img src="symbol.png" alt="" class="bg-symbol" aria-hidden="true">
+            <div class="container reveal">
+                <p class="eyebrow">Archive</p>
+                <h1>Our Work</h1>
+                <p class="lead">Fragments of what we’ve built. Names withheld, details obscured—what remains is the craft.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="grid">
+                    <article class="work-card reveal">
+                        <span class="tag">Construct I</span>
+                        <h3>Obsidian Veil</h3>
+                        <p>A stripped-back digital identity and presence for <span class="redacted">redacted</span>, designed to command attention without a single excess element.</p>
+                        <div class="meta"><span class="pill">Identity</span><span class="pill">Web</span><span class="pill">Classified</span></div>
+                    </article>
+                    <article class="work-card reveal">
+                        <span class="tag">Construct II</span>
+                        <h3>Silent Relay</h3>
+                        <p>A resilient interface layer built for speed and discretion, enabling <span class="redacted">redacted operations</span> across shifting conditions.</p>
+                        <div class="meta"><span class="pill">Engineering</span><span class="pill">Systems</span><span class="pill">Classified</span></div>
+                    </article>
+                    <article class="work-card reveal">
+                        <span class="tag">Construct III</span>
+                        <h3>Crimson Gate</h3>
+                        <p>A hardened entry experience and visual system—minimal surface, maximum intent—for an unnamed collective.</p>
+                        <div class="meta"><span class="pill">Identity</span><span class="pill">Strategy</span><span class="pill">Classified</span></div>
+                    </article>
+                    <article class="work-card reveal">
+                        <span class="tag">Construct IV</span>
+                        <h3>Null Meridian</h3>
+                        <p>An internal architecture and dashboard concept, reduced to signal over noise for <span class="redacted">confidential</span> workflows.</p>
+                        <div class="meta"><span class="pill">Systems</span><span class="pill">Interface</span><span class="pill">Classified</span></div>
+                    </article>
+                    <article class="work-card reveal">
+                        <span class="tag">Construct V</span>
+                        <h3>Hex Trace</h3>
+                        <p>A dark, performance-focused web presence engineered to load fast, read clearly, and linger in memory.</p>
+                        <div class="meta"><span class="pill">Web</span><span class="pill">Performance</span><span class="pill">Classified</span></div>
+                    </article>
+                    <article class="work-card reveal">
+                        <span class="tag">Construct VI</span>
+                        <h3>Echo Chamber</h3>
+                        <p>A narrative-driven landing experience weaving symbolism, motion, and restraint into a single descent.</p>
+                        <div class="meta"><span class="pill">Experience</span><span class="pill">Identity</span><span class="pill">Classified</span></div>
+                    </article>
+                </div>
+
+                <div class="panel reveal" style="margin-top:3rem; text-align:center;">
+                    <p class="eyebrow">Note</p>
+                    <h2>Most Work Remains Unseen</h2>
+                    <p class="muted">By design, the majority of our constructs are never named, never shown, and never claimed. Some truths surface only when the <span class="clue">eclipse</span> is whole.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-brand"><img src="symbol.png" alt=""><span>SILT-HEXER</span></div>
+            <div class="footer-meta"><div>No masters. No gods. Only the code.</div><div style="margin-top:.25rem;">&copy; <span id="year"></span> SILT-HEXER. All rights reserved.</div></div>
+        </div>
+    </footer>
+    <script src="js/work.js"></script>
+<script src="guard.js"></script>
+</body>
+</html>

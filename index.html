@@ -1,0 +1,488 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SILT-HEXER | Digital Order</title>
+    <meta name="description" content="SILT-HEXER is a small, private studio. We build brands, websites, and systems quietly, carefully, and without the usual noise.">
+    <meta name="theme-color" content="#050505">
+    <meta property="og:title" content="SILT-HEXER | Digital Order">
+    <meta property="og:description" content="A small, private studio building brands, sites, and systems without the noise.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="Banner.png">
+    <link rel="icon" type="image/png" href="symbol.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --bg-elevated: #0b0b0b;
+            --bg-soft: #101010;
+            --text: #d6d6d6;
+            --muted: #8f8f8f;
+            --line: #1d1d1d;
+            --accent: #cc0011;
+            --accent-dark: #8f000c;
+            --accent-glow: rgba(204, 0, 17, 0.25);
+            --max-width: 1180px;
+            --radius: 14px;
+            --transition: 220ms ease;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; color-scheme: dark; scrollbar-color: #2a2a2a #050505; }
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background:
+                radial-gradient(1200px 500px at 50% -10%, rgba(204, 0, 17, 0.12), transparent 60%),
+                linear-gradient(180deg, #050505 0%, #070707 100%);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+        ::selection { background: rgba(204, 0, 17, 0.35); color: #fff; }
+        :focus-visible { outline: 2px solid rgba(204,0,17,0.6); outline-offset: 2px; }
+        img { max-width: 100%; display: block; }
+        a { color: inherit; }
+        .container { width: min(var(--max-width), calc(100% - 2.5rem)); margin: 0 auto; }
+        .section { padding: 6rem 0; border-top: 1px solid var(--line); scroll-margin-top: 90px; }
+        .eyebrow {
+            font-family: "Cinzel", serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+        h1, h2, h3 {
+            font-family: "Cinzel", serif;
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.15;
+            letter-spacing: 0.04em;
+        }
+        h1 { font-size: clamp(2.6rem, 6vw, 5rem); margin-bottom: 1rem; }
+        h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: 1rem; }
+        h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+        p.lead { font-size: 1.1rem; color: #c7c7c7; max-width: 60ch; }
+        .muted { color: var(--muted); }
+        .clue { color: #d0d0d0; text-shadow: 0 0 12px rgba(204,0,17,0.15); }
+
+        /* Header */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+            background: rgba(5, 5, 5, 0.78);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .nav {
+            min-height: 72px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 1rem;
+        }
+        .brand { justify-self: start; display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .brand img { height: 32px; width: auto; }
+        .brand span {
+            font-family: "Cinzel", serif;
+            letter-spacing: 0.18em;
+            font-size: 0.95rem;
+            color: #fff;
+        }
+        .nav-symbol { justify-self: center; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; text-decoration: none; filter: drop-shadow(0 0 10px rgba(204,0,17,0.35)); transition: filter var(--transition), transform var(--transition); }
+        .nav-symbol img { width: 36px; height: 36px; object-fit: contain; }
+        .nav-symbol:hover, .nav-symbol:focus-visible { filter: drop-shadow(0 0 16px rgba(204,0,17,0.7)); transform: scale(1.08); }
+        .nav-links {
+            justify-self: end;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+        .nav-links a { position: relative; }
+        .nav-links a::after { content:""; position:absolute; left:0; bottom:-4px; width:100%; height:1px; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform var(--transition); opacity:.8; }
+        .nav-links a:hover, .nav-links a:focus-visible { color: #fff; }
+        .nav-links a:hover::after, .nav-links a:focus-visible::after { transform:scaleX(1); }
+        .nav-toggle {
+            justify-self: end;
+            display: none;
+            background: transparent;
+            border: 1px solid var(--line);
+            color: #fff;
+            border-radius: 10px;
+            padding: 0.45rem 0.7rem;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.35rem;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border: 1px solid transparent;
+            transition: transform var(--transition), background var(--transition), border-color var(--transition), box-shadow var(--transition);
+            cursor: pointer;
+        }
+        .btn:hover { transform: translateY(-1px); }
+        .btn-primary {
+            background: linear-gradient(180deg, var(--accent), var(--accent-dark));
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(204, 0, 17, 0.18);
+        }
+        .btn-primary:hover { box-shadow: 0 14px 34px rgba(204, 0, 17, 0.28); }
+        .btn-secondary {
+            border-color: #2a2a2a;
+            background: rgba(255,255,255,0.02);
+            color: #fff;
+        }
+        .btn-secondary:hover { border-color: #3a3a3a; background: rgba(255,255,255,0.04); }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            min-height: calc(100vh - 72px);
+            display: flex;
+            align-items: center;
+            padding: 6rem 0;
+            border-top: none;
+            overflow: hidden;
+            background: url('Banner.png') center/cover no-repeat;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(5,5,5,0.55) 0%, rgba(5,5,5,0.75) 55%, rgba(5,5,5,0.95) 100%),
+                radial-gradient(80% 60% at 50% 30%, rgba(204,0,17,0.18), transparent 70%);
+            z-index: 1;
+        }
+        .hero-bg-symbol {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(85vw, 900px);
+            max-width: none;
+            opacity: 0.07;
+            filter: drop-shadow(0 0 40px rgba(204,0,17,0.25));
+            z-index: 1;
+            pointer-events: none;
+            user-select: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 760px;
+        }
+        .hero-copy .tagline {
+            font-family: "Cinzel", serif;
+            color: var(--accent);
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 18px rgba(204,0,17,0.35);
+        }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 2rem; }
+
+        /* About */
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        .panel {
+            background: linear-gradient(180deg, var(--bg-elevated), #080808);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 2rem;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .stat {
+            padding: 1.25rem;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.01);
+        }
+        .stat strong { display: block; color: #fff; font-family: "Cinzel", serif; font-size: 1.2rem; margin-bottom: 0.25rem; }
+        .stat span { color: var(--muted); font-size: 0.85rem; }
+
+        /* Cards */
+        #services {
+            position: relative;
+            overflow: hidden;
+        }
+        #services .bg-symbol {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(70vw, 700px);
+            max-width: none;
+            opacity: 0.05;
+            filter: drop-shadow(0 0 30px rgba(204,0,17,0.2));
+            z-index: 0;
+            pointer-events: none;
+            user-select: none;
+        }
+        #services .container {
+            position: relative;
+            z-index: 1;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 2.5rem;
+        }
+        .card {
+            padding: 1.75rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+            transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(204,0,17,0.35);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+        }
+        .cards .card:nth-child(2) { transition-delay: 60ms; }
+        .cards .card:nth-child(3) { transition-delay: 120ms; }
+        .card .icon {
+            width: 38px; height: 38px;
+            display: grid; place-items: center;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            color: #fff;
+            background: rgba(204,0,17,0.12);
+            border: 1px solid rgba(204,0,17,0.25);
+            font-family: "Cinzel", serif;
+        }
+        .card p { color: var(--muted); font-size: 0.96rem; }
+
+        /* (contact removed) */
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 3rem 0;
+        }
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+        .footer-brand { display: flex; align-items: center; gap: 0.75rem; }
+        .footer-brand img { width: 30px; opacity: 0.9; }
+        .footer-brand span { font-family: "Cinzel", serif; letter-spacing: 0.18em; color: #fff; }
+        .footer-meta { color: var(--muted); font-size: 0.9rem; text-align: right; }
+
+        /* Reveal animation */
+        .reveal { opacity: 0; transform: translateY(18px); transition: opacity 600ms ease, transform 600ms ease; }
+        .reveal.visible { opacity: 1; transform: none; }
+
+        /* Responsive */
+        @media (max-width: 960px) {
+            .split { grid-template-columns: 1fr; }
+            .cards { grid-template-columns: 1fr 1fr; }
+            .stats { grid-template-columns: 1fr 1fr 1fr; }
+        }
+        @media (max-width: 720px) {
+            .section { padding: 4.5rem 0; }
+            .nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0 1rem; }
+            .brand { margin-right: auto; }
+            .nav-symbol { order: 2; }
+            .nav-toggle { display: inline-flex; order: 3; }
+            .nav-links {
+                order: 4;
+                flex-basis: 100%;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                margin-top: 0.75rem;
+                padding: 0.25rem 0 1rem;
+                border-top: 1px solid var(--line);
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 0.75rem 0; border-bottom: 1px solid #151515; }
+            .nav-links li:last-child a { border-bottom: none; }
+            .cards, .stats { grid-template-columns: 1fr; }
+            .footer-meta { text-align: left; }
+            .hero { min-height: calc(100svh - 72px); padding: 4.5rem 0; }
+            .hero-bg-symbol { width: 130vw; opacity: 0.06; }
+        }
+        @media (max-width: 480px) {
+            .brand span { display: none; }
+            .container { width: calc(100% - 1.75rem); }
+            .section { padding: 3.75rem 0; }
+            .hero { padding: 3.5rem 0; }
+            .hero-actions { flex-direction: column; align-items: stretch; }
+            .hero-actions .btn { width: 100%; }
+            .card, .panel, .stat { padding: 1.35rem; }
+            h1 { font-size: clamp(2.1rem, 11vw, 3rem); }
+            .nav-symbol img { width: 32px; height: 32px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition: none !important; animation: none !important; }
+            .reveal { opacity: 1; transform: none; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav">
+            <a href="#home" class="brand" aria-label="SILT-HEXER home">
+                <img src="logo.png" alt="" width="120" height="34">
+                <span>SILT-HEXER</span>
+            </a>
+            <a href="rabbit-hole.html" class="nav-symbol" aria-label="Enter the Rabbit Hole" title="Rabbit Hole">
+                <img src="symbol.png" alt="" width="36" height="36">
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+                <ul class="nav-links" id="primary-nav">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="work.html">Our Work</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main id="home">
+        <section class="hero section">
+            <img src="symbol.png" alt="" class="hero-bg-symbol" aria-hidden="true" decoding="async">
+            <div class="container hero-content">
+                <div class="hero-copy reveal">
+                    <p class="tagline">Stare into the void</p>
+                    <h1>Architects of the Unseen</h1>
+                    <p class="lead">A small studio with one rule: if it doesn't need to be there, it goes. We design and build brands, sites, and systems for people who'd rather let the work speak. No theatrics. No filler. Just things that hold up.</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="work.html">View Our Work</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container split">
+                <div class="reveal">
+                    <p class="eyebrow">Who we are</p>
+                    <h2>Quiet by choice. Precise by habit.</h2>
+                    <p class="muted">We don't chase attention. We build things that earn it. Every project starts the same way: with a hard look at what can be removed. What's left once the noise is gone is usually the part worth keeping.</p>
+                    <p class="muted" style="margin-top:1rem;">We're small on purpose. Fewer people, fewer meetings, and more of the work actually getting done. Born in the <span class="clue">crimson</span> eclipse and raised on quiet iteration, we keep our heads down, hit our dates, and let the results do the talking.</p>
+                    <div class="stats">
+                        <div class="stat"><strong>Small on purpose</strong><span>Senior people only. No handoffs, no layers.</span></div>
+                        <div class="stat"><strong>Direct</strong><span>You talk to the person doing the work.</span></div>
+                        <div class="stat"><strong>Built to last</strong><span>No shortcuts. Nothing to rebuild next year.</span></div>
+                    </div>
+                </div>
+                <div class="panel reveal">
+                    <p class="eyebrow">Principles</p>
+                    <h3>No masters. No gods. Only the code.</h3>
+                    <p class="muted" style="margin-top:1rem;">We care about clarity, control, and craft. Strip away what doesn't matter, harden what's left, and ship something that feels obvious in hindsight.</p>
+                    <ul style="margin-top:1.25rem; padding-left:1.1rem; color:var(--muted); display:grid; gap:0.6rem;">
+                        <li>Design that does a job, not decoration</li>
+                        <li>Security considered from day one</li>
+                        <li>Clean code you can actually maintain</li>
+                        <li>Discretion, honesty, and no drama</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <img src="symbol.png" alt="" class="bg-symbol" aria-hidden="true" loading="lazy" decoding="async">
+            <div class="container">
+                <div class="reveal">
+                    <p class="eyebrow">Capabilities</p>
+                    <h2>What we actually do</h2>
+                    <p class="lead">A few things, done properly. Nothing we can't stand behind.</p>
+                </div>
+                <div class="cards">
+                    <article class="card reveal">
+                        <div class="icon">I</div>
+                        <h3>Brand & Identity</h3>
+                        <p>Names, marks, and visual systems that sound like you and not a template. We help you figure out what you actually stand for, then make sure nobody confuses you with anyone else.</p>
+                    </article>
+                    <article class="card reveal">
+                        <div class="icon">II</div>
+                        <h3>Web Engineering</h3>
+                        <p>Fast, accessible sites and interfaces that hold up under real use. Clean structure, sensible code, and no mystery dependencies that fall apart six months later.</p>
+                    </article>
+                    <article class="card reveal">
+                        <div class="icon">III</div>
+                        <h3>Systems & Strategy</h3>
+                        <p>Before anything gets built, we work out what it needs to do and what it doesn't. Clear plans, honest timelines, and foundations you won't have to rip out next year.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="panel reveal" style="text-align:center; max-width: 720px; margin: 0 auto;">
+                    <p class="eyebrow">Presence</p>
+                    <h2>Anonymous by Design</h2>
+                    <p class="muted">No contact form. No newsletter. No 'book a call' button. If you know how to reach us, you already have. If you don't, keep looking. That's part of it.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <img src="symbol.png" alt="" loading="lazy" decoding="async">
+                <span>SILT-HEXER</span>
+            </div>
+            <div class="footer-meta">
+                <div>No masters. No gods. Only the code.</div>
+                <div style="margin-top:0.25rem;">&copy; <span id="year"></span> SILT-HEXER. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/index.js"></script>
+<script src="guard.js"></script>
+</body>
+</html>
+

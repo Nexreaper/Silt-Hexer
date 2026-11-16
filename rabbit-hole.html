@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rabbit Hole | SILT-HEXER</title>
+    <meta name="description" content="Descend into the SILT-HEXER rabbit hole. Fragments, signals, and the order beneath the noise.">
+    <meta name="theme-color" content="#050505">
+    <meta name="color-scheme" content="dark">
+    <link rel="icon" type="image/png" href="symbol.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg:#050505; --bg-elevated:#0b0b0b; --text:#d6d6d6; --muted:#8f8f8f; --line:#1d1d1d; --accent:#cc0011; --accent-dark:#8f000c; --max-width:1180px; --radius:14px; --transition:220ms ease; }
+        *{box-sizing:border-box;margin:0;padding:0}         html{scroll-behavior:smooth;color-scheme:dark;scrollbar-color:#2a2a2a #050505}
+        body{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(1200px 600px at 50% -10%, rgba(204,0,17,.1), transparent 60%),#050505;color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+        body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+        ::selection{background:rgba(204,0,17,.35);color:#fff} :focus-visible{outline:2px solid rgba(204,0,17,.6);outline-offset:2px}
+        img{max-width:100%;display:block} a{color:inherit}
+        .container{width:min(var(--max-width),calc(100% - 2.5rem));margin:0 auto}
+        .section{padding:6rem 0;border-top:1px solid var(--line);position:relative}
+        .eyebrow{font-family:"Cinzel",serif;font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+        h1,h2,h3{font-family:"Cinzel",serif;font-weight:600;color:#fff;line-height:1.15;letter-spacing:.04em}
+        h1{font-size:clamp(2.4rem,5vw,4rem);margin-bottom:1rem} h2{font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:1rem} h3{font-size:1.05rem;margin-bottom:.5rem}
+        p.lead{font-size:1.1rem;color:#c7c7c7;max-width:60ch} .muted{color:var(--muted)}
+        .site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(5,5,5,.78);border-bottom:1px solid rgba(255,255,255,.04)}
+        .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+        .brand{display:inline-flex;align-items:center;gap:.75rem;text-decoration:none}
+        .brand img{height:32px;width:auto} .brand span{font-family:"Cinzel",serif;letter-spacing:.18em;font-size:.95rem;color:#fff}
+        .nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none}
+        .nav-links a{text-decoration:none;color:var(--muted);font-size:.92rem;font-weight:500;transition:color var(--transition)}
+        .nav-links a:hover,.nav-links a.active{color:#fff}
+        .nav-toggle{display:none;background:transparent;border:1px solid var(--line);color:#fff;border-radius:10px;padding:.45rem .7rem;font:inherit;cursor:pointer}
+
+        .hole-hero{position:relative;min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:6rem 0}
+        .hole-hero::before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 50% 50%, rgba(204,0,17,.12) 0%, rgba(5,5,5,0) 45%),radial-gradient(circle at 50% 50%, rgba(204,0,17,.08) 0%, transparent 60%);animation:pulse 8s ease-in-out infinite}
+        .hole-hero .bg-symbol{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(90vw,900px);opacity:.06;filter:drop-shadow(0 0 40px rgba(204,0,17,.25));pointer-events:none}
+        .hole-hero .container{position:relative;z-index:1}
+        @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.05);opacity:.85}}
+
+        .depth{max-width:760px;margin:0 auto}
+        .layers{display:grid;gap:1.25rem;margin-top:2.5rem}
+        .layer{position:relative;padding:1.75rem 1.75rem 1.75rem 2rem;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0));transition:transform var(--transition),border-color var(--transition)}
+        .layer:hover{transform:translateX(4px);border-color:rgba(204,0,17,.25)}
+        .layer::before{content:"";position:absolute;left:0;top:1.25rem;bottom:1.25rem;width:3px;background:linear-gradient(180deg,var(--accent),transparent);border-radius:3px}
+        .gate-panel{border:1px solid rgba(204,0,17,.2);box-shadow:0 0 0 1px rgba(204,0,17,.05), 0 30px 60px rgba(0,0,0,.35)}
+        .gate-eye{position:relative;display:flex;align-items:center;justify-content:center;width:76px;height:76px;margin:0 auto 1rem;border-radius:50%;overflow:hidden;background:#070707;box-shadow:0 0 0 1px rgba(204,0,17,.35),0 0 26px rgba(204,0,17,.32);animation:breathe 4.6s ease-in-out infinite}
+        .gate-eye img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease-out}
+        .gate-eye.blink .eyelid{animation:blink .3s ease-in-out}
+        .gate-input{width:100%;padding:.9rem 1rem;border-radius:10px;border:1px solid #242424;background:#0c0c0c;color:#fff;font:inherit;transition:border-color .2s,box-shadow .2s}
+        .gate-input:focus{outline:none;border-color:rgba(204,0,17,.5);box-shadow:0 0 0 3px rgba(204,0,17,.12)}
+        .gate-btn{display:inline-flex;align-items:center;justify-content:center;padding:.9rem 1.35rem;border-radius:999px;font-weight:600;font-size:.95rem;border:1px solid transparent;background:linear-gradient(180deg,#cc0011,#8f000c);color:#fff;cursor:pointer;transition:transform .2s,box-shadow .2s}
+        .gate-btn:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(204,0,17,.25)}
+        .gate-btn:disabled{opacity:.7;cursor:default;transform:none}
+        @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+        .shake{animation:shake .35s ease}
+        .gate-success{box-shadow:0 0 0 1px rgba(125,255,158,.2), 0 0 40px rgba(125,255,158,.08), 0 30px 60px rgba(0,0,0,.35)!important;border-color:rgba(125,255,158,.25)!important}
+        #gate-welcome[hidden]{display:none}
+        #gate-welcome{opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease}
+        #gate-welcome.visible{opacity:1;transform:none}
+
+        main, footer{position:relative;z-index:3}
+        #dim{position:fixed;inset:0;z-index:40;pointer-events:none;opacity:0;background:radial-gradient(120% 120% at 50% 50%, rgba(0,0,0,0) 30%, rgba(60,0,4,.38) 72%, rgba(0,0,0,.8) 100%);transition:opacity .8s ease}
+        #dim.strong{background:radial-gradient(120% 120% at 50% 50%, rgba(0,0,0,0) 22%, rgba(80,0,6,.5) 68%, rgba(0,0,0,.9) 100%)}
+        #dim.show{opacity:1}
+        .eye-pop{position:fixed;left:0;top:0;z-index:45;display:flex;align-items:center;gap:.7rem;padding:.5rem .95rem .5rem .5rem;border-radius:999px;background:rgba(8,8,8,.9);border:1px solid rgba(204,0,17,.35);box-shadow:0 0 30px rgba(204,0,17,.25), 0 12px 30px rgba(0,0,0,.5);backdrop-filter:blur(6px);opacity:0;transform:translateY(10px) scale(.92);pointer-events:none;transition:opacity .5s ease, transform .5s ease;max-width:calc(100vw - 40px);will-change:left,top,opacity,transform}
+        .eye-pop.show{opacity:1;transform:none}
+        .eye-wrap{position:relative;width:42px;height:42px;flex:0 0 auto;border-radius:50%;overflow:hidden;background:#070707;box-shadow:0 0 0 1px rgba(204,0,17,.3), 0 0 14px rgba(204,0,17,.35);animation:breathe 4.6s ease-in-out infinite}
+        .eye-wrap img{width:100%;height:100%;border-radius:50%;display:block;transition:transform .25s ease-out}
+        .eyelid{position:absolute;inset:0;border-radius:50%;background:#070707;transform:scaleY(0);transform-origin:center top;box-shadow:inset 0 -3px 8px rgba(204,0,17,.45)}
+        .eye-pop.blink .eyelid{animation:blink .3s ease-in-out}
+        @keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+        @keyframes blink{0%,100%{transform:scaleY(0)}50%{transform:scaleY(1)}}
+        .eye-pop-text{font-family:"Cinzel",serif;color:#ececec;font-size:.86rem;letter-spacing:.08em;line-height:1.3;white-space:normal;max-width:260px}
+        @media (max-width:720px){.eye-pop-text{font-size:.75rem;max-width:170px}}
+        .sound-toggle{position:fixed;right:16px;bottom:16px;z-index:46;width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;padding:0;border-radius:50%;border:1px solid rgba(204,0,17,.35);background:rgba(8,8,8,.82);color:#cfcfcf;cursor:pointer;opacity:.45;transition:opacity .25s ease,border-color .25s ease,color .25s ease;backdrop-filter:blur(6px)}
+        .sound-toggle:hover,.sound-toggle:focus-visible{opacity:1;border-color:rgba(204,0,17,.7);color:#fff}
+        .sound-toggle svg{width:16px;height:16px;display:block}
+        .sound-toggle .sound-on{display:none}
+        .sound-toggle[aria-pressed="true"] .sound-on{display:block}
+        .sound-toggle[aria-pressed="true"] .sound-off{display:none}
+        .layer .depth-mark{font-family:"Cinzel",serif;color:var(--accent);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;margin-bottom:.4rem}
+        .layer p{color:var(--muted)}
+        .sigil{display:flex;align-items:center;justify-content:center;padding:4rem 0}
+        .sigil img{width:140px;opacity:.18;filter:drop-shadow(0 0 25px rgba(204,0,17,.25))}
+        .fragment{font-family:"Cinzel",serif;font-size:clamp(1.2rem,2.5vw,1.7rem);color:#e8e8e8;text-align:center;line-height:1.5;max-width:28ch;margin:0 auto}
+        .fragment span{color:var(--accent)}
+        .whispers{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+        .whisper{padding:1.25rem;border:1px dashed #232323;border-radius:12px;color:#9a9a9a;font-size:.95rem;text-align:center;background:rgba(255,255,255,.01)}
+        footer{border-top:1px solid var(--line);padding:3rem 0}
+        .footer-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem}
+        .footer-brand{display:flex;align-items:center;gap:.75rem}
+        .footer-brand img{width:30px;opacity:.9} .footer-brand span{font-family:"Cinzel",serif;letter-spacing:.18em;color:#fff}
+        .footer-meta{color:var(--muted);font-size:.9rem;text-align:right}
+        .reveal{opacity:0;transform:translateY(18px);transition:opacity 600ms ease,transform 600ms ease}
+        .reveal.visible{opacity:1;transform:none}
+        @media (max-width:960px){.whispers{grid-template-columns:1fr}}
+        @media (max-width:720px){.section{padding:4.5rem 0}.nav{flex-wrap:wrap;gap:0 1rem}.brand{margin-right:auto}.nav-toggle{display:inline-flex;order:3}.nav-links{order:4;flex-basis:100%;display:none;flex-direction:column;align-items:stretch;gap:0;margin-top:.75rem;padding:.25rem 0 1rem;border-top:1px solid var(--line)}.nav-links.open{display:flex}.nav-links a{padding:.75rem 0;border-bottom:1px solid #151515}.nav-links li:last-child a{border-bottom:none}.footer-meta{text-align:left}.hole-hero{min-height:60vh}}
+        @media (max-width:480px){.container{width:calc(100% - 1.75rem)}.section{padding:3.75rem 0}.hole-hero{padding:4rem 0}.layer{padding:1.35rem 1.35rem 1.35rem 1.6rem}.whisper{padding:1rem}.gate-btn{width:100%}.sound-toggle{right:12px;bottom:12px;width:34px;height:34px}}
+        @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+    </style>
+</head>
+<body>
+    <div id="dim" aria-hidden="true"></div>
+    <div class="eye-pop" id="eye-pop" aria-hidden="true">
+        <span class="eye-wrap"><img src="eye.png" alt=""><span class="eyelid"></span></span>
+        <span class="eye-pop-text"></span>
+    </div>
+    <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="true" aria-label="Toggle ambient sound" title="Sound">
+        <svg class="sound-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M22 9l-6 6M16 9l6 6"/></svg>
+        <svg class="sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+    </button>
+    <header class="site-header">
+        <div class="container nav">
+            <a href="index.html" class="brand" aria-label="SILT-HEXER home">
+                <img src="logo.png" alt=""><span>SILT-HEXER</span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="work.html">Our Work</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="hole-hero">
+            <img src="symbol.png" alt="" class="bg-symbol" aria-hidden="true">
+            <div class="container reveal">
+                <p class="eyebrow">Descent</p>
+                <h1>If You Came Here, You Are Not Ordinary</h1>
+                <p class="lead" style="margin:0 auto;">Not everything is meant to be found. Some things are meant to be followed—downward, inward, past the edge of certainty.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container depth">
+                <div id="gate-panel" class="panel gate-panel reveal" style="text-align:center;">
+                    <div class="gate-eye" aria-hidden="true"><img src="eye.png" alt=""><span class="eyelid"></span></div>
+                    <p class="eyebrow">The Gate</p>
+                    <h2 style="font-family:'Cinzel',serif; letter-spacing:0.08em;">Find the Clues</h2>
+                    <p style="margin:1rem auto 1.5rem; max-width:55ch; font-family:'Cinzel',serif; font-size:1.35rem; color:#e8e8e8; letter-spacing:0.06em; line-height:1.5;">The answer is your key to join.</p>
+                    <p class="muted" style="margin:0 auto 1.5rem; max-width:55ch;">Scattered across the domain, fragments await the observant. Gather them in order. Speak the key.</p>
+                    <form id="gate-form" style="max-width:420px; margin:0 auto; display:grid; gap:0.85rem;">
+                        <label for="gate-answer" style="position:absolute;left:-9999px;">Key</label>
+                        <input id="gate-answer" class="gate-input" name="answer" type="text" autocomplete="off" spellcheck="false" placeholder="Enter the key">
+                        <button type="submit" class="gate-btn">Unlock</button>
+                        <p id="gate-result" class="muted" style="min-height:1.5em; font-size:0.95rem;" aria-live="polite"></p>
+                    </form>
+                </div>
+                <div id="gate-welcome" class="panel reveal" hidden style="text-align:center; margin-top:1.25rem; border-color:rgba(125,255,158,.2);">
+                    <p class="eyebrow" style="color:#7dff9e;">Access Granted</p>
+                    <h3 style="font-family:'Cinzel',serif; font-size:1.4rem; margin-bottom:.5rem;">Welcome to the Inner Circle</h3>
+                    <p class="muted">You saw what others missed. Remain unseen. Carry the signal.</p>
+                    <a class="gate-btn" id="gate-channel" href="https://t.me/+7dfzGPIpcaQ4NGE0" target="_blank" rel="noopener noreferrer" style="margin-top:1.25rem;text-decoration:none;">Enter the Channel</a>
+                    <p class="muted" style="margin-top:.75rem;font-size:.85rem;">Opening the channel&hellip;</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container depth">
+                <div class="reveal" style="text-align:center;">
+                    <p class="eyebrow">Strata</p>
+                    <h2>Layers Beneath the Surface</h2>
+                </div>
+                <div class="layers">
+                    <div class="layer reveal">
+                        <div class="depth-mark">Depth I — The Signal</div>
+                        <h3>What You See</h3>
+                        <p>A mark. A name. A surface polished to obsidian. The visible world is curated—an interface between intent and interpretation.</p>
+                    </div>
+                    <div class="layer reveal">
+                        <div class="depth-mark">Depth II — The Pattern</div>
+                        <h3>What Repeats</h3>
+                        <p>Symbols recur because meaning does. In the noise, we trace the lines that others overlook and bind them into form.</p>
+                    </div>
+                    <div class="layer reveal">
+                        <div class="depth-mark">Depth III — The Silence</div>
+                        <h3>What Remains</h3>
+                        <p>Strip away the excess and only the essential survives. We build in that silence—where nothing distracts from function.</p>
+                    </div>
+                    <div class="layer reveal">
+                        <div class="depth-mark">Depth IV — The Void</div>
+                        <h3>What Stares Back</h3>
+                        <p>Beyond certainty is the unknown. We do not fear it. We architect within it, and let the work speak where we do not.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="border-top:1px solid var(--line);">
+            <div class="container reveal">
+                <div class="sigil"><img src="symbol.png" alt=""></div>
+                <p class="fragment">“We are the <span>shadow</span> in the machine, the <span>silence</span> in the noise.”</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="reveal" style="text-align:center;">
+                    <p class="eyebrow">Whispers</p>
+                    <h2>Fragments Recovered</h2>
+                </div>
+                <div class="whispers">
+                    <div class="whisper reveal">The chain is an illusion.</div>
+                    <div class="whisper reveal">Every system has a seam.</div>
+                    <div class="whisper reveal">Anonymity is a discipline.</div>
+                    <div class="whisper reveal">What is hidden defines what is shown.</div>
+                    <div class="whisper reveal">Precision outlasts noise.</div>
+                    <div class="whisper reveal">The descent is the point.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-brand"><img src="symbol.png" alt=""><span>SILT-HEXER</span></div>
+            <div class="footer-meta"><div>No masters. No gods. Only the code.</div><div style="margin-top:.25rem;">&copy; <span id="year"></span> SILT-HEXER. All rights reserved.</div></div>
+        </div>
+    </footer>
+    <script src="js/rabbit.js"></script>
+<script src="guard.js"></script>
+</body>
+</html>
